@@ -10,3 +10,8 @@ docker-compose build
 ```
 docker-compose run --service web
 ```
+
+## Start app
+```
+docker-compose run web python3 manage.py startapp <APPNAME>
+```
