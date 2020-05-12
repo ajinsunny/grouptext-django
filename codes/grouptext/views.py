@@ -11,7 +11,7 @@ def index(request):
     return HttpResponse("Hello World")
 
 class TextGroupViewSet(viewsets.ModelViewSet):
-    queryset = TextGroup.objects.all().order_by('name')
+    queryset = TextGroup.objects.all().order_by('group_name')
     serializer_class = TextGroupSerializer
-    
+
 
