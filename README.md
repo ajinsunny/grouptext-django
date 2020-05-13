@@ -1,5 +1,10 @@
 # Django
 
+# admin interface
+https://grouptext-django.dreamstate-4-all.org/admin/
+user=root
+password=password123
+
 # start/dev
 $ docker-compose -f docker-compose.yml up
 
