@@ -1,11 +1,27 @@
 version: '3.3'
 
 services:
-    web:
+    db:
+        restart: always
+        image: postgres:12
+        ports:
+            - 5432:5432
+        volumes:
+            - /opt/grouptext-data-prod:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: db
+            POSTGRES_USER: db_user
+            POSTGRES_PASSWORD: db_pass
+
+    groupapp:
         build: .
+        depends_on:
+            - db
         volumes:
             - ./codes:/home/web/codes
         ports:
             - 8100:8000
+        entrypoint: /entrypoint.sh
+        restart: always
         command: bash -c "python3 manage.py runserver 0.0.0.0:8000"
 
