@@ -1,5 +1,8 @@
 # Django
 
+# start/dev
+$ docker-compose -f docker-compose.yml up
+
 ## Build project
 
 ```
