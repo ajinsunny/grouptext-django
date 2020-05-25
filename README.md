@@ -1,5 +1,7 @@
 # Django
 
+[![Build status](https://badge.buildkite.com/50e41ba4d9bc98e4d9d4f04e0e551104dde8ab33f50a9ba80c.svg)](https://buildkite.com/dreamstate/grouptext-django)
+
 # admin interface
 https://grouptext-django.dreamstate-4-all.org/admin/
 user=root
