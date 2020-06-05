@@ -8,6 +8,7 @@ router.register(r'TextGroupMember', views.TextGroupMemberViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path(r'add_group_member/', views.add_group_member),
     path('api-auth/', include('rest_framework.urls',
         namespace='rest_framework')),
 ]
