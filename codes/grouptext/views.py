@@ -36,3 +36,29 @@ def add_group_member(request, group_id):
     text_group_member.save()
 
     return Response({'id': text_group_member.id})
+
+
+@api_view(['GET'])
+def get_groups_and_members(request):
+
+    text_groups_members = []
+    text_groups = TextGroup.objects.all()
+    for text_group in text_groups:
+        text_group_info = {
+            'group_name': text_group.group_name,
+            'members': [],
+        }
+
+        text_group_members = TextGroupMember.objects.filter(
+            text_group=text_group).all()
+
+        for text_group_member in text_group_members:
+            text_group_info['members'].append({
+                'member_name': text_group_member.member_name,
+                'member_phone': text_group_member.member_phone,
+                'member_id': text_group_member.id,
+            })
+
+        text_groups_members.append(text_group_info)
+
+    return Response(text_groups_members)
