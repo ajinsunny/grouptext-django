@@ -1,3 +1,3 @@
 #!/bin/bash -ex
 
-# rm -rf ${BUILDKITE_BUILD_CHECKOUT_PATH}
+rm -rf ${BUILDKITE_BUILD_CHECKOUT_PATH}
