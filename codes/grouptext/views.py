@@ -24,11 +24,10 @@ class TextGroupMemberViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['POST'])
-def add_group_member(request):
+def add_group_member(request, group_id):
 
     # look up textgroup from textgroup_id
-    text_group_id = request.data.get("textgroup_id")
-    text_group = TextGroup.objects.get(id=text_group_id)
+    text_group = TextGroup.objects.get(id=group_id)
 
     text_group_member = TextGroupMember()
     text_group_member.member_name = request.data.get("member_name")
