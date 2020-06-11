@@ -45,6 +45,7 @@ def get_groups_and_members(request):
     text_groups = TextGroup.objects.all()
     for text_group in text_groups:
         text_group_info = {
+            'group_id': text_group.id,
             'group_name': text_group.group_name,
             'members': [],
         }
