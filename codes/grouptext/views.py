@@ -4,7 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .serializers import TextGroupSerializer, TextGroupMemberSerializer
-from .models import TextGroup, TextGroupMember
+from .serializers import TextQuestionSerializer
+from .models import TextGroup, TextGroupMember, TextQuestion
 
 # Create your views here.
 
@@ -21,6 +22,11 @@ class TextGroupViewSet(viewsets.ModelViewSet):
 class TextGroupMemberViewSet(viewsets.ModelViewSet):
     queryset = TextGroupMember.objects.all().order_by('text_group')
     serializer_class = TextGroupMemberSerializer
+
+
+class TextQuestionMemberSet(viewsets.ModelViewSet):
+    queryset = TextQuestion.objects.all().order_by('text_group')
+    serializer_class = TextQuestionSerializer
 
 
 @api_view(['POST'])
