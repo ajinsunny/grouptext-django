@@ -5,6 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'TextGroups', views.TextGroupViewSet)
 router.register(r'TextGroupMember', views.TextGroupMemberViewSet)
+router.register(r'TextQuestion', views.TextQuestionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -24,7 +24,7 @@ class TextGroupMemberViewSet(viewsets.ModelViewSet):
     serializer_class = TextGroupMemberSerializer
 
 
-class TextQuestionMemberSet(viewsets.ModelViewSet):
+class TextQuestionViewSet(viewsets.ModelViewSet):
     queryset = TextQuestion.objects.all().order_by('text_group')
     serializer_class = TextQuestionSerializer
 
