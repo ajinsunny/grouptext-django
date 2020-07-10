@@ -44,6 +44,20 @@ def add_group_member(request, group_id):
     return Response({'id': text_group_member.id})
 
 
+@api_view(['POST'])
+def ask_group_question(request, group_id):
+
+    # look up textgroup from textgroup_id
+    text_group = TextGroup.objects.get(id=group_id)
+
+    text_question = TextQuestion()
+    text_question.text_group = text_group
+    text_question.question = request.data.get("question")
+    text_question.save()
+
+    return Response({'id': text_question.id})
+
+
 @api_view(['GET'])
 def get_groups_and_members(request):
 
