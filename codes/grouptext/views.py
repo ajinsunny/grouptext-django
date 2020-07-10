@@ -68,7 +68,18 @@ def get_groups_and_members(request):
             'group_id': text_group.id,
             'group_name': text_group.group_name,
             'members': [],
+            'questions': [],
         }
+
+        text_questions = TextQuestion.objects.filter(
+            text_group=text_group).all()
+
+        for text_question in text_questions:
+            text_group_info['questions'].append({
+                'question': text_question.question,
+                'sent': text_question.sent,
+                'text_question_id': text_question.id,
+            })
 
         text_group_members = TextGroupMember.objects.filter(
             text_group=text_group).all()
